@@ -3,23 +3,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{% block title %}{% endblock %}</title>
+  <title>Quacker</title>
   <link href='{% static "css/base.css" %}' rel="stylesheet">
+  <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicons/favicon.ico" type="icon" />
 </head>
 <body>
 <div id="header">
-  <span class="logo">Bookmarks</span>
+  <span class="logo">Quacker</span>
   {% if request.user.is_authenticated %}
     <ul class="menu">
       <li {% if section == "dashboard" %}class="selected"{% endif %}>
-        <a href='{% url "dashboard" %}'>My dashboard</a>
+        <a href='{% url "dashboard" %}'>Dashboard</a>
       </li>
-      <li {% if section == "images" %}class="selected"{% endif %}>
-        <a href="#">Images</a>
+      <li {% if section == "messages" %}class="selected"{% endif %}>
+        <a href="#">Messages</a>
       </li>
-      <li {% if section == "people" %}class="selected"{% endif %}>
-        <a href="#">People</a>
+      <li {% if section == "profile" %}class="selected"{% endif %}>
+        <a href='{% url "edit" %}'>Profile</a>
       </li>
+      <li {% if section == "invite friends" %}class="selected"{% endif %}>
+        <a href="#">Invite Friends</a>
+      </li>
+
     </ul>
   {% endif %}
   <span class="user">

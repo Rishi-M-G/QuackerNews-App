@@ -2,19 +2,25 @@
 {% block title %}Dashboard{% endblock %}
 {% block content %}
   <h1>Dashboard</h1>
-  <p>Welcome to your dashboard. You can <a href='{% url "edit" %}'>edit your profile</a></p>
     <form method="GET">
         <input type="text" name="keyword">
-        <input type="submit" value="Search">
+        <input class="search-btn" type="submit" value="Search">
     </form>
-  {% for i in articles %}
-      <br>
-      <hr>
-      <img src = "{{i.urlToImage}}" alt="" height="200px" width="200px">
-      <p>{{i.author}}</p>
-      <p>{{i.title}}</p>
-      <p>{{i.description}}</p>
-      <a href="{{i.url}}" target="_blank">View Article</a>
-      <small> published at:{{i.publishedAt}}</small>
+    {% for i in articles %}
+    <div class="grid-container">
+        <div class="card">
+          <div class="news-img">
+            <img src = "{{i.urlToImage}}" alt="" height="180px" width="300px">
+          </div>
+          <div class="news-info">
+            <h2>{{i.title}}</h2>
+            <h3>{{i.author}}</h3>
+            <p>{{i.description}}</p>
+            <a href="{{i.url}}" target="_blank">View Article</a>
+            <small> published at:{{i.publishedAt}}</small>
+          </div>
+        </div>
+        </div>
   {%endfor%}
+
 {% endblock %}

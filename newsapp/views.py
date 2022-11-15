@@ -6,9 +6,10 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
-from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm, NewsInput
+from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm, NewsInput,InviteFriendsForm
 from django.contrib import messages
 import requests
+from django.core.mail import send_mail
 
 
 # ***********************************************************************
@@ -25,8 +26,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated ' \
-                                        'successfully')
+                    return HttpResponse('Authenticated successfully')
                 else:
                     return HttpResponse('Disabled newsapp')
             else:
@@ -48,7 +48,7 @@ def dashboard(request):
         context = {
             'articles': articles
         }
-        return render(request,'newsapp/dashboard.html',context)
+        return render(request, 'newsapp/dashboard.html', context)
     else:
         url = f'https://newsapi.org/v2/top-headlines?country=us&apiKey={API_KEY}'
         response = requests.get(url)
@@ -58,6 +58,7 @@ def dashboard(request):
             'articles': articles
         }
         return render(request, 'newsapp/dashboard.html', context)
+
 
 def register(request):
     if request.method == 'POST':
@@ -96,6 +97,25 @@ def edit(request):
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
     return render(request, 'newsapp/edit.html', {'user_form': user_form, 'profile_form': profile_form})
+
+
+def landing(request):
+    return (request, 'index.html')
+
+def invite_friends(request):
+    sent = False
+    if request.method == 'POST':
+        form = InviteFriendsForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            link = f'https://quacker.com:8000/newsapp/login/'
+            subject = f"{cd['first_name']} invites you to Quacker"
+            message = f"Quacker is a web-based news application that feeds users the trending news in the locality of their choice using News API. Login here {link}"
+            send_mail(subject,message,'quacker.blackshark@gmail.com',[cd['to']])
+            sent = True
+        else:
+            form = InviteFriendsForm()
+        return render()
 
 
 # ***********************************************************************

@@ -1,13 +1,20 @@
-@import url(//fonts.googleapis.com/css?family=Muli);
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
 body {
     margin:0;
     padding:0;
-    font-family:helvetica, sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 p {
-    line-height: 1.8;
+    line-height: 1.5;
 }
 
 a {
@@ -19,7 +26,7 @@ a:hover {
     color:#00a74f;
 }
 
-h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight:normal; }
+h1, h2, h3, h4, h5 , h6 { font-family: 'Poppins', sans-serif; font-weight:normal; }
 
 h1 {
     border-bottom:1px solid #bbb;
@@ -38,17 +45,17 @@ ol {
 #header {
     padding:10px 100px;
     font-size:14px;
-    background:#12c064;
+    background:#373238;
     color:#fff;
-    border-bottom:4px solid #1cdf78;
+    border-bottom:4px solid #F5865C;
     overflow:auto;
 }
 
 #header .logo {
-    font-family: 'Muli', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     float:left;
-    color:#f3f7cc;
-    font-size:20px;
+    color:#EF4F1F;
+    font-size:28px;
     margin-right:10%;
 }
 
@@ -64,25 +71,29 @@ ol {
 }
 
 #header ul.menu li.selected a, #header ul.menu li.selected a:hover {
-    color:#1b6d32;
+    color:#F5865C;
     font-weight:bold;
 }
 
 #header a {
-    color:#f3f7cc;
+    color:#FEF5F1;
 }
 #header a:hover {
-    color:#fff;
+    color:#F5865C;
 }
 
 #header .user {
     float:right;
-    padding-top:4px;
+    padding: 4px;
 }
 
 #content {
     padding:30px 100px;
 }
+
+.search-btn {
+color: #F5865C;
+background: #373238;}
 
 /* forms */
 form {
@@ -97,26 +108,31 @@ form p {
 label {
     float:left;
     clear:both;
-    color:#333;
+    color:#F5865C;
     margin-bottom:4px;
 }
 input, textarea {
     clear:both;
     float:left;
     margin:0 0 10px;
-    background:#efefef;
+    background:#FEF5F1;
     border:0;
     padding:6px 10px;
     font-size:14px;
+    border-radius: 12px;
 }
 input[type=submit], a.button {
     font-weight:bold;
-    background:#12c064;
+    background:#F5865C;
     color:#fff;
     padding:10px 20px;
     font-size:14px;
     text-transform:uppercase;
+    border-radius: 12px;
 }
+
+
+
 .errorlist {
     color:#cc0033;
     float:left;
@@ -274,4 +290,26 @@ img.user-detail {
 .action .date {
     font-style:italic;
     color:#ccc;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit);
+  gap: 20px;
+  width: 25%;
+  margin: 20px auto;
+}
+
+.grid-container .card {
+  background: rgba(245, 134, 92, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.grid-container .card .news-info {
+  background: rgba(55, 50, 56, 0.2);
+  width: 100%;
+  border-radius: 12px;
 }

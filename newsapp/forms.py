@@ -34,12 +34,23 @@ class UserEditForm(forms.ModelForm):
         model = User
         fields = ('first_name', 'last_name', 'email')
 
+
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('date_of_birth','photo')
+        fields = ('date_of_birth', 'photo')
+
 
 class NewsInput(forms.Form):
     keyword = forms.CharField()
 
+
+class InviteFriendsForm(forms.Form):
+    first_name = forms.CharField(max_length=225)
+    email = forms.EmailField()
+    to = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ('first_name','email')
 # ***********************************************************************
