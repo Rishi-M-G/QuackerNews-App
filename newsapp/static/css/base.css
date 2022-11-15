@@ -190,7 +190,10 @@ ul.messages li a.close {
 
 /* social-auth */
 .social {
-    float:right;
+    text-align: center;
+    float:center;
+    width: 25%;
+    margin: 2rem auto;
 }
 .social li {
     list-style:none;
@@ -292,15 +295,33 @@ img.user-detail {
     color:#ccc;
 }
 
-.grid-container {
+.home-section {
+  position: relative;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.home-section .text {
+  display: inline-block;
+  color: #000000;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px;
+}
+
+.home-section .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
-  width: 25%;
+  width: 90%;
   margin: 20px auto;
 }
 
-.grid-container .card {
+.home-section .grid-container .card {
   background: rgba(245, 134, 92, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -308,7 +329,15 @@ img.user-detail {
   border-radius: 12px;
 }
 
-.grid-container .card .news-info {
+.home-section .grid-container .card .news-img {
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  padding: auto;
+}
+
+.home-section .grid-container .card .news-info {
   background: rgba(55, 50, 56, 0.2);
   width: 100%;
   border-radius: 12px;

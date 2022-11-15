@@ -6,12 +6,11 @@
         <input type="text" name="keyword">
         <input class="search-btn" type="submit" value="Search">
     </form>
-    {% for i in articles %}
+<section class="home-section">
     <div class="grid-container">
+    {% for i in articles %}
         <div class="card">
-          <div class="news-img">
-            <img src = "{{i.urlToImage}}" alt="" height="180px" width="300px">
-          </div>
+            <img class="news-img" src = "{{i.urlToImage}}" alt="">
           <div class="news-info">
             <h2>{{i.title}}</h2>
             <h3>{{i.author}}</h3>
@@ -20,7 +19,7 @@
             <small> published at:{{i.publishedAt}}</small>
           </div>
         </div>
-        </div>
   {%endfor%}
-
+    </div>
+</section>
 {% endblock %}

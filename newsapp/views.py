@@ -102,20 +102,20 @@ def edit(request):
 def landing(request):
     return (request, 'index.html')
 
-def invite_friends(request):
-    sent = False
-    if request.method == 'POST':
-        form = InviteFriendsForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            link = f'https://quacker.com:8000/newsapp/login/'
-            subject = f"{cd['first_name']} invites you to Quacker"
-            message = f"Quacker is a web-based news application that feeds users the trending news in the locality of their choice using News API. Login here {link}"
-            send_mail(subject,message,'quacker.blackshark@gmail.com',[cd['to']])
-            sent = True
-        else:
-            form = InviteFriendsForm()
-        return render()
+# def invite_friends(request):
+#     sent = False
+#     if request.method == 'POST':
+#         form = InviteFriendsForm(request.POST)
+#         if form.is_valid():
+#             cd = form.cleaned_data
+#             link = f'https://quacker.com:8000/newsapp/login/'
+#             subject = f"{cd['first_name']} invites you to Quacker"
+#             message = f"Quacker is a web-based news application that feeds users the trending news in the locality of their choice using News API. Login here {link}"
+#             send_mail(subject,message,'quacker.blackshark@gmail.com',[cd['to']])
+#             sent = True
+#         else:
+#             form = InviteFriendsForm()
+#         return render()
 
 
 # ***********************************************************************
