@@ -1,48 +1,40 @@
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
-=======
-@import url(//fonts.googleapis.com/css?family=Muli);
->>>>>>> 7a59026 (Final Sprint)
 
 body {
     margin:0;
     padding:0;
-<<<<<<< HEAD
     font-family: "Poppins", sans-serif;
+    background: #373238;
+    color: #FEF5F1;
 }
 
 p {
     line-height: 1.5;
-=======
     font-family:helvetica, sans-serif;
 }
 
 p {
     line-height: 1.8;
->>>>>>> 7a59026 (Final Sprint)
 }
 
 a {
-    color:#12c064;
+    color:#F5865C;
     text-decoration:none;
 }
 
 a:hover {
-    color:#00a74f;
+    color:#FEF5F1;
 }
 
-<<<<<<< HEAD
 h1, h2, h3, h4, h5 , h6 { font-family: 'Poppins', sans-serif; font-weight:normal; }
-=======
 h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight:normal; }
->>>>>>> 7a59026 (Final Sprint)
 
 h1 {
     border-bottom:1px solid #bbb;
@@ -61,30 +53,17 @@ ol {
 #header {
     padding:10px 100px;
     font-size:14px;
-<<<<<<< HEAD
-    background:#373238;
+    background:#000000;
     color:#fff;
     border-bottom:4px solid #F5865C;
-=======
-    background:#12c064;
-    color:#fff;
-    border-bottom:4px solid #1cdf78;
->>>>>>> 7a59026 (Final Sprint)
     overflow:auto;
 }
 
 #header .logo {
-<<<<<<< HEAD
     font-family: 'Josefin Sans', sans-serif;
     float:left;
     color:#EF4F1F;
     font-size:28px;
-=======
-    font-family: 'Muli', sans-serif;
-    float:left;
-    color:#f3f7cc;
-    font-size:20px;
->>>>>>> 7a59026 (Final Sprint)
     margin-right:10%;
 }
 
@@ -100,48 +79,31 @@ ol {
 }
 
 #header ul.menu li.selected a, #header ul.menu li.selected a:hover {
-<<<<<<< HEAD
     color:#F5865C;
-=======
-    color:#1b6d32;
->>>>>>> 7a59026 (Final Sprint)
     font-weight:bold;
 }
 
 #header a {
-<<<<<<< HEAD
     color:#FEF5F1;
 }
 #header a:hover {
     color:#F5865C;
-=======
-    color:#f3f7cc;
-}
-#header a:hover {
-    color:#fff;
->>>>>>> 7a59026 (Final Sprint)
 }
 
 #header .user {
     float:right;
-<<<<<<< HEAD
     padding: 4px;
-=======
     padding-top:4px;
->>>>>>> 7a59026 (Final Sprint)
 }
 
 #content {
     padding:30px 100px;
 }
 
-<<<<<<< HEAD
 .search-btn {
 color: #F5865C;
 background: #373238;}
 
-=======
->>>>>>> 7a59026 (Final Sprint)
 /* forms */
 form {
     overflow:auto;
@@ -155,50 +117,29 @@ form p {
 label {
     float:left;
     clear:both;
-<<<<<<< HEAD
     color:#F5865C;
-=======
-    color:#333;
->>>>>>> 7a59026 (Final Sprint)
     margin-bottom:4px;
 }
 input, textarea {
     clear:both;
     float:left;
     margin:0 0 10px;
-<<<<<<< HEAD
     background:#FEF5F1;
     border:0;
     padding:6px 10px;
     font-size:14px;
     border-radius: 12px;
 }
+
 input[type=submit], a.button {
     font-weight:bold;
     background:#F5865C;
-=======
-    background:#efefef;
-    border:0;
-    padding:6px 10px;
-    font-size:14px;
-}
-input[type=submit], a.button {
-    font-weight:bold;
-    background:#12c064;
->>>>>>> 7a59026 (Final Sprint)
-    color:#fff;
+    color:#FEF5F1;
     padding:10px 20px;
     font-size:14px;
     text-transform:uppercase;
-<<<<<<< HEAD
     border-radius: 12px;
 }
-
-
-
-=======
-}
->>>>>>> 7a59026 (Final Sprint)
 .errorlist {
     color:#cc0033;
     float:left;
@@ -226,7 +167,7 @@ ul.messages li.info {
     margin:0;
     padding:14px 20px;
     list-style:none;
-    color:#fff;
+    color:#FEF5F1;
 }
 
 ul.messages li.success { background:#81ce81; }
@@ -256,29 +197,35 @@ ul.messages li a.close {
 
 /* social-auth */
 .social {
-<<<<<<< HEAD
     text-align: center;
-    float:center;
-    width: 25%;
+    min-width: 25%;
+    max-width: 40%;
     margin: 2rem auto;
-=======
-    float:right;
->>>>>>> 7a59026 (Final Sprint)
+
 }
 .social li {
-    list-style:none;
+    list-style: none;
     padding:10px 20px;
     margin:0 0 10px 0;
 }
 .social li a {
     width:100%;
     height:100%;
-    display:block;
-    color:#fff;
+    display: block;
+    color:#FEF5F1;
 }
-.social li.facebook { background:#3b5399; }
-.social li.twitter { background:#00cffa; }
-.social li.google { background:#de1710; }
+.social li.facebook {
+    background:#3b5399;
+    border-radius: 12px;
+}
+.social li.twitter {
+    background:#00cffa;
+    border-radius: 12px;
+}
+.social li.google {
+    background:#de1710;
+    border-radius: 12px;
+}
 
 
 /* images */
@@ -308,8 +255,8 @@ a.like, a.follow { float:right; margin-top:-8px; }
     width:220px;
     height:300px;
     margin:0 10px 10px 10px;
-    border-top:8px solid #12c064;
-    background:#eee;
+    border-top:8px solid #F5865C;
+    background:#FEF5F1;
 }
 #image-list img { width:220px; height:220px; }
 #image-list .info { padding:10px; }
@@ -362,10 +309,10 @@ img.user-detail {
 }
 .action .date {
     font-style:italic;
-    color:#ccc;
+    color:#FEF5F1;
 }
 
-<<<<<<< HEAD
+
 .home-section {
   position: relative;
   min-height: 100vh;
@@ -384,7 +331,7 @@ img.user-detail {
   margin: 18px;
 }
 
-.home-section .grid-container {
+.grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 20px;
@@ -392,7 +339,7 @@ img.user-detail {
   margin: 20px auto;
 }
 
-.home-section .grid-container .card {
+.grid-container .card {
   background: rgba(245, 134, 92, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -400,58 +347,59 @@ img.user-detail {
   border-radius: 12px;
 }
 
-.home-section .grid-container .card .news-img {
+.grid-container .card .news-img {
   width: 300px;
   height: 180px;
   object-fit: cover;
   border-radius: 12px;
   padding: auto;
 }
-
-.home-section .grid-container .card .news-info {
-  background: rgba(55, 50, 56, 0.2);
-  width: 100%;
-  border-radius: 12px;
-}
-=======
-/* Hide Radio Button */
-.rate > input{
-    display:none;
-}
-.rate{
-    display:inline-block;;
-    border:0;
-}
-.rate > label{
+.rate {
+    display: flex;
     float: right;
+    height: 46px;
+    padding: 0 10px;
 }
-
-/* Showing the starts */
-.rate > label:before{
-    display: inline-block;
-    font-size : 1.1rem;
-    font-family : FontAwesome;
-    content : "\f005";
-    margin : 0;
-    padding : 0.3rem .2rem;
-    cursor: pointer;
-}
-
-/* Half Star*/
-.rate .half:before{
-    content:"\f089";
+.rate:not(:checked) > input {
     position:absolute;
-    padding-right:0;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#FEF5F1;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #F5865C;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #F5865C;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
 }
 
-/* click and hover */
-input:checked ~ label, label:hover ~ label{
-    color: #ffb503;
+.categories {
+    display: inline-block;
+    margin: 0 1rem;
 }
 
-/* hover highlight */
-input:checked + label:hover, input:checked ~ label:hover,input:checked ~ label:hover ~ label,
-label:hover ~ input:checked ~ label{
-    color:#cc9000;
+.categories .category-item {
+    background: #F5865C;
+    padding: 0 1rem;
+    border-radius: 12px;
 }
->>>>>>> 7a59026 (Final Sprint)
+
+

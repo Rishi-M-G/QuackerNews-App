@@ -1,14 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Dashboard{% endblock %}
+{% block title %}Trending News{% endblock %}
 {% block content %}
-  <h1>Dashboard</h1>
-<p>Welcome to your dashboard. You can <a href='{% url "edit" %}'>edit your profile</a> or <a href='{% url "password_change" %}'>change your password</a>.</p>
-
-    <form method="GET">
-        <input type="text" name="keyword">
-        <input class="search-btn" type="submit" value="Search">
-    </form>
-    <form method="GET">
+<form method="GET">
         <select name="country">
             <option selected="selected" disabled>Country:</option>
             <option value="us">United States</option>
@@ -37,19 +30,6 @@
             <option value="jp">Japan</option>
         </select>
         <input type="submit" value="Select">
-    </form>
-    <form method="GET">
-        <select name="category">
-            <option selected="selected" disabled>Category:</option>
-            <option value="business">Business</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="general">General</option>
-            <option value="health">Health</option>
-            <option value="science">Science</option>
-            <option value="sports">Sports</option>
-            <option value="technology">Technology</option>
-        </select>
-        <input type="submit" value="Search">
     </form>
 
 <section class="home-section">

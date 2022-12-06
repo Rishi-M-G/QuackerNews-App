@@ -15,11 +15,11 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-<<<<<<< HEAD
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'quacker.settings')
 
 application = get_asgi_application()
-=======
+
 # delete later
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
@@ -41,4 +41,4 @@ application = ProtocolTypeRouter(
         ),
     }
 )
->>>>>>> 7a59026 (Final Sprint)
+

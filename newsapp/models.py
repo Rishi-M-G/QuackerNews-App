@@ -1,18 +1,5 @@
 from django.db import models
 from django.conf import settings
-<<<<<<< HEAD
-
-
-# Create your models here.
-
-class Profile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    date_of_birth = models.DateField(blank=True, null=True)
-    photo = models.ImageField(upload_to='users/%d/%m/%Y/', blank=True)
-
-    def __str__(self):
-        return f'Profile for user {self.user.username}'
-=======
 from django.contrib.auth import get_user_model
 from datetime import datetime
 
@@ -29,7 +16,6 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'Profile for user {self.user.username}'
-
 
 # for saving news
 
@@ -76,4 +62,4 @@ class Rating(models.Model):
 class News(models.Model):
     article = models.ForeignKey(Articles, on_delete=models.CASCADE)
     user = models.ForeignKey('auth.User',on_delete=models.CASCADE)
->>>>>>> 7a59026 (Final Sprint)
+

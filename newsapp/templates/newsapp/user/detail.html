@@ -18,6 +18,46 @@
         Unfollow
       {% endif %}
     </a>
+{% if request.user in user.followers.all %}
+User's Preferred Categories:
+<span class="categories">
+    <span class="category-item">{{user.profile.category_pref1}}</span>
+    <span class="category-item">{{user.profile.category_pref2}}</span>
+    <span class="category-item">{{user.profile.category_pref3}}</span>
+</span>
+<div class="grid-container">
+    {% for i in articles %}
+        <div class="card">
+            <img class="news-img" src = "{{i.urlToImage}}" alt="">
+          <div class="news-info">
+            <a href="{{ i.title }}"><h2>{{i.title}}</h2></a>
+            <h3>{{i.author}}</h3>
+            <p>{{i.description}}</p>
+            <a href="{{i.url}}" target="_blank">View Article</a>
+            <small> published at:{{i.publishedAt}}</small>
+          </div>
+            <form action="{}" method="post">
+                  {% csrf_token %}
+                  <div>
+                      <!--Rating Star-->
+                      <div class="rate">
+                          <input type="radio" id="star1" name="rate" value="1" />
+                          <label for="star1" title="text">1 star</label>
+                          <input type="radio" id="star2" name="rate" value="2" />
+                          <label for="star2" title="text">2 stars</label>
+                          <input type="radio" id="star3" name="rate" value="3" />
+                          <label for="star3" title="text">3 stars</label>
+                          <input type="radio" id="star4" name="rate" value="4" />
+                          <label for="star4" title="text">4 stars</label>
+                          <input type="radio" id="star5" name="rate" value="5" />
+                          <label for="star5" title="text">5 stars</label>
+                      </div>
+                  </div>
+              </form>
+        </div>
+    {%endfor%}
+    </div>
+{% endif %}
   {% endwith %}
 {% endblock %}
 {% block domready %}

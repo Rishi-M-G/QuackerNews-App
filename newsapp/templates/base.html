@@ -1,51 +1,17 @@
-<<<<<<< HEAD
-<!--Delete this later-->
-=======
->>>>>>> 7a59026 (Final Sprint)
 {% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-  <title>Quacker</title>
-  <link href='{% static "css/base.css" %}' rel="stylesheet">
-  <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Boxicons -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- Favicon -->
-    <link rel="icon" href="assets/favicons/favicon.ico" type="icon" />
-</head>
-<body>
-<div id="header">
-  <span class="logo">Quacker</span>
-  {% if request.user.is_authenticated %}
-    <ul class="menu">
-      <li {% if section == "dashboard" %}class="selected"{% endif %}>
-        <a href='{% url "dashboard" %}'>Trending News</a>
-      </li>
-      <li {% if section == "messages" %}class="selected"{% endif %}>
-        <a href="#">Messages</a>
-      </li>
-      <li {% if section == "profile" %}class="selected"{% endif %}>
-        <a href='{% url "edit" %}'>Profile</a>
-      </li>
-      <li {% if section == "invite friends" %}class="selected"{% endif %}>
-        <a href="#">Invite Friends</a>
-=======
   <title>{% block title %}{% endblock %}</title>
   <link href='{% static "css/base.css" %}' rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href='{% static "css/lobby_styles.css" %}'>
+  <link rel="stylesheet" href='{% static "css/room_styles.css" %}'>
+
 </head>
 <body>
   <div id="header">
-  <span class="logo">Bookmarks</span>
+  <span class="logo">Quacker</span>
   {% if request.user.is_authenticated %}
     <ul class="menu">
       <li {% if section == "dashboard" %}class="selected"{% endif %}>
@@ -59,7 +25,9 @@
       </li>
       <li {% if section == "Chat" %}class="selected"{% endif %}>
         <a href='{% url "chat:index" %}'>Chat</a>
->>>>>>> 7a59026 (Final Sprint)
+      </li>
+      <li {% if section == "Trending" %}class="selected"{% endif %}>
+        <a href='{% url "trending" %}'>Trending News</a>
       </li>
 
     </ul>
@@ -72,13 +40,8 @@
       <a href='{% url "login" %}'>Log-in</a>
     {% endif %}
   </span>
-<<<<<<< HEAD
-</div>
-{% if messages %}
-=======
   </div>
   {% if messages %}
->>>>>>> 7a59026 (Final Sprint)
   <ul class="messages">
     {% for message in messages %}
       <li class="{{ message.tags }}">
@@ -88,15 +51,6 @@
     {% endfor %}
   </ul>
 {% endif %}
-<<<<<<< HEAD
-<div id="content">
-    {% block content %}
-    {% endblock %}
-</div>
-</body>
-</html>
-<!--*****************-->
-=======
   <div id="content">
     {% block content %}
     {% endblock %}
@@ -123,4 +77,3 @@
 </script>
 </body>
 </html>
->>>>>>> 7a59026 (Final Sprint)

@@ -1,11 +1,15 @@
 import random
 import requests
+import django
+import channels
+import social_django
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm  # UserRegistrationForm
 from django.contrib.auth.decorators import login_required
-from .models import Profile, News, Articles
+from .models import Profile, News, Articles,Rating
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm, InviteForm
 from django.contrib import messages
 from random import shuffle
@@ -17,10 +21,12 @@ from django.views.decorators.http import require_POST
 from .models import Contact
 from common.decorators import ajax_required
 from django.db import connection
-
-
+import inspect
+from django.test import TestCase
 
 # Create your views here.
+
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -42,10 +48,12 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'newsapp/login.html', {'form': form})
 
+def landing(request):
+    return render(request, 'newsapp/index.html')
 
 @login_required
 def dashboard(request):
-    API_KEY = 'ee0e3182c0994372897f23722268cc5b'
+    API_KEY = '4205006ffd1f42c29743498f9255c2f8'
     if request.GET.get('keyword'):
         keyword = request.GET.get('keyword')
         url = f'https://newsapi.org/v2/everything?q={keyword}&apiKey={API_KEY}'
@@ -93,9 +101,9 @@ def dashboard(request):
         keyword1 = request.user.profile.category_pref1
         keyword2 = request.user.profile.category_pref2
         keyword3 = request.user.profile.category_pref3
-        url1 = f'https://newsapi.org/v2/everything?q={keyword1}&apiKey={API_KEY}&pageSize=5'
-        url2 = f'https://newsapi.org/v2/everything?q={keyword2}&apiKey={API_KEY}&pageSize=5'
-        url3 = f'https://newsapi.org/v2/everything?q={keyword3}&apiKey={API_KEY}&pageSize=5'
+        url1 = f'https://newsapi.org/v2/everything?q={keyword1}&apiKey={API_KEY}&pageSize=15'
+        url2 = f'https://newsapi.org/v2/everything?q={keyword2}&apiKey={API_KEY}&pageSize=15'
+        url3 = f'https://newsapi.org/v2/everything?q={keyword3}&apiKey={API_KEY}&pageSize=15'
         response1 = requests.get(url1)
         response2 = requests.get(url2)
         response3 = requests.get(url3)
@@ -110,6 +118,28 @@ def dashboard(request):
             'articles': articles
         }
         return render(request, 'newsapp/dashboard.html', context)
+
+def trending(request):
+    API_KEY = '4205006ffd1f42c29743498f9255c2f8'
+    if request.GET.get('country'):
+        country = request.GET.get('country')
+        url = f'https://newsapi.org/v2/top-headlines?country={country}&apiKey={API_KEY}'
+        response = requests.get(url)
+        data = response.json()
+        articles = data['articles']
+        context = {
+            'articles': articles
+        }
+        return render(request, 'newsapp/trending.html', context)
+    else:
+        url = f'https://newsapi.org/v2/top-headlines?country=ca&apiKey={API_KEY}'
+        response = requests.get(url)
+        data = response.json()
+        articles = data['articles']
+        context = {
+            'articles': articles
+        }
+        return render(request, 'newsapp/trending.html', context)
 
 
 def register(request):
@@ -173,13 +203,28 @@ def invite_friends(request):
 @login_required
 def user_list(request):
     users = User.objects.filter(is_active=True)
+
     return render(request, 'newsapp/user/list.html', {'section': 'people', 'users': users})
 
 
 @login_required
 def user_detail(request, username):
+    API_KEY = '4205006ffd1f42c29743498f9255c2f8'
     user = get_object_or_404(User, username=username, is_active=True)
-    return render(request, 'newsapp/user/detail.html', {'section': 'people', 'user': user})
+    keyword1 = user.profile.category_pref1
+    keyword2 = user.profile.category_pref2
+    keyword3 = user.profile.category_pref3
+    url1 = f'https://newsapi.org/v2/everything?q={keyword1}&apiKey={API_KEY}&pageSize=5'
+    url2 = f'https://newsapi.org/v2/everything?q={keyword2}&apiKey={API_KEY}&pageSize=5'
+    url3 = f'https://newsapi.org/v2/everything?q={keyword3}&apiKey={API_KEY}&pageSize=5'
+    response1 = requests.get(url1)
+    response2 = requests.get(url2)
+    response3 = requests.get(url3)
+    data1 = response1.json()
+    data2 = response2.json()
+    data3 = response3.json()
+    articles = data1['articles'] + data2['articles'] + data3['articles']
+    return render(request, 'newsapp/user/detail.html', {'section': 'people', 'user': user,'articles':articles})
 
 
 # @ajax_required
@@ -212,7 +257,36 @@ def save_news_general(data):
                                 url_to_image=item['urlToImage'],
                                 published_at=item['publishedAt'])
 
-
+print("****** INSPECTION ******")
+print("\n")
+print("-----Inspection of Classes-----")
+print("\n")
+print("User Class: ",inspect.isclass(User))
+print("Profile Class: ",inspect.isclass(Profile))
+print("Article Class: ",inspect.isclass(Articles))
+print("Contact Class: ",inspect.isclass(Contact))
+print("Rating Class: ",inspect.isclass(Rating))
+print("\n")
+print("-----Inspection of Imported Modules-----")
+print("\n")
+print("Django Module: ",inspect.ismodule(django))
+print("Channels Module: ",inspect.ismodule(channels))
+print("Social Authentication Module: ",inspect.ismodule(social_django))
+print("\n")
+print("-----Inspection of Functions-----")
+print("\n")
+print("Landing View: ",inspect.isfunction(landing))
+print("User Login View: ",inspect.isfunction(user_login))
+print("Dashboard View: ",inspect.isfunction(dashboard))
+print("Trending View: ",inspect.isfunction(trending))
+print("Register View: ",inspect.isfunction(register))
+print("Edit View: ",inspect.isfunction(edit))
+print("Invite Friends View: ",inspect.isfunction(invite_friends))
+print("Followers List View: ",inspect.isfunction(user_list))
+print("Followers Detail View: ",inspect.isfunction(user_detail))
+print("Follow Request: ",inspect.isfunction(user_follow))
+print("Save News: ",inspect.isfunction(save_news_general))
+print("\n")
 def detail(request, title):
     # with connection.cursor() as cursor:
     #     cursor.execute("SELECT * FROM dbo.newsapp_articles WHERE title= %s", [title])

@@ -1,0 +1,54 @@
+body {
+  margin: 0%;
+  width: auto;
+  background-color: #373238;
+  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  margin: 37% 0;
+}
+
+h1 {
+  color: #f5865c;
+}
+
+.cover-container {
+  max-width: 42em;
+  text-align: center;
+  margin: 0% auto;
+  padding: 16px;
+  color: #fef5f1;
+}
+
+/* Header */
+header {
+  position: relative;
+}
+
+.logo {
+  color: #ef4f1f;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.nav-link {
+  color: #fef5f1;
+  border-bottom: 0.25rem solid transparent;
+  padding: 0% 0.5rem;
+}
+
+.nav-link:hover {
+  color: #f5865c;
+}
+
+/* Footer */
+.quacker-footer {
+  font-size: 12px;
+  width: auto;
+}
+
+.footer-links {
+  text-decoration: none;
+  color: #fef5f1;
+}
