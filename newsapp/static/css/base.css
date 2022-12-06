@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins&display=swap");
 
 * {
@@ -6,15 +7,26 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+=======
+@import url(//fonts.googleapis.com/css?family=Muli);
+>>>>>>> 7a59026 (Final Sprint)
 
 body {
     margin:0;
     padding:0;
+<<<<<<< HEAD
     font-family: "Poppins", sans-serif;
 }
 
 p {
     line-height: 1.5;
+=======
+    font-family:helvetica, sans-serif;
+}
+
+p {
+    line-height: 1.8;
+>>>>>>> 7a59026 (Final Sprint)
 }
 
 a {
@@ -26,7 +38,11 @@ a:hover {
     color:#00a74f;
 }
 
+<<<<<<< HEAD
 h1, h2, h3, h4, h5 , h6 { font-family: 'Poppins', sans-serif; font-weight:normal; }
+=======
+h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight:normal; }
+>>>>>>> 7a59026 (Final Sprint)
 
 h1 {
     border-bottom:1px solid #bbb;
@@ -45,17 +61,30 @@ ol {
 #header {
     padding:10px 100px;
     font-size:14px;
+<<<<<<< HEAD
     background:#373238;
     color:#fff;
     border-bottom:4px solid #F5865C;
+=======
+    background:#12c064;
+    color:#fff;
+    border-bottom:4px solid #1cdf78;
+>>>>>>> 7a59026 (Final Sprint)
     overflow:auto;
 }
 
 #header .logo {
+<<<<<<< HEAD
     font-family: 'Josefin Sans', sans-serif;
     float:left;
     color:#EF4F1F;
     font-size:28px;
+=======
+    font-family: 'Muli', sans-serif;
+    float:left;
+    color:#f3f7cc;
+    font-size:20px;
+>>>>>>> 7a59026 (Final Sprint)
     margin-right:10%;
 }
 
@@ -71,30 +100,48 @@ ol {
 }
 
 #header ul.menu li.selected a, #header ul.menu li.selected a:hover {
+<<<<<<< HEAD
     color:#F5865C;
+=======
+    color:#1b6d32;
+>>>>>>> 7a59026 (Final Sprint)
     font-weight:bold;
 }
 
 #header a {
+<<<<<<< HEAD
     color:#FEF5F1;
 }
 #header a:hover {
     color:#F5865C;
+=======
+    color:#f3f7cc;
+}
+#header a:hover {
+    color:#fff;
+>>>>>>> 7a59026 (Final Sprint)
 }
 
 #header .user {
     float:right;
+<<<<<<< HEAD
     padding: 4px;
+=======
+    padding-top:4px;
+>>>>>>> 7a59026 (Final Sprint)
 }
 
 #content {
     padding:30px 100px;
 }
 
+<<<<<<< HEAD
 .search-btn {
 color: #F5865C;
 background: #373238;}
 
+=======
+>>>>>>> 7a59026 (Final Sprint)
 /* forms */
 form {
     overflow:auto;
@@ -108,13 +155,18 @@ form p {
 label {
     float:left;
     clear:both;
+<<<<<<< HEAD
     color:#F5865C;
+=======
+    color:#333;
+>>>>>>> 7a59026 (Final Sprint)
     margin-bottom:4px;
 }
 input, textarea {
     clear:both;
     float:left;
     margin:0 0 10px;
+<<<<<<< HEAD
     background:#FEF5F1;
     border:0;
     padding:6px 10px;
@@ -124,15 +176,29 @@ input, textarea {
 input[type=submit], a.button {
     font-weight:bold;
     background:#F5865C;
+=======
+    background:#efefef;
+    border:0;
+    padding:6px 10px;
+    font-size:14px;
+}
+input[type=submit], a.button {
+    font-weight:bold;
+    background:#12c064;
+>>>>>>> 7a59026 (Final Sprint)
     color:#fff;
     padding:10px 20px;
     font-size:14px;
     text-transform:uppercase;
+<<<<<<< HEAD
     border-radius: 12px;
 }
 
 
 
+=======
+}
+>>>>>>> 7a59026 (Final Sprint)
 .errorlist {
     color:#cc0033;
     float:left;
@@ -190,10 +256,14 @@ ul.messages li a.close {
 
 /* social-auth */
 .social {
+<<<<<<< HEAD
     text-align: center;
     float:center;
     width: 25%;
     margin: 2rem auto;
+=======
+    float:right;
+>>>>>>> 7a59026 (Final Sprint)
 }
 .social li {
     list-style:none;
@@ -295,6 +365,7 @@ img.user-detail {
     color:#ccc;
 }
 
+<<<<<<< HEAD
 .home-section {
   position: relative;
   min-height: 100vh;
@@ -342,3 +413,45 @@ img.user-detail {
   width: 100%;
   border-radius: 12px;
 }
+=======
+/* Hide Radio Button */
+.rate > input{
+    display:none;
+}
+.rate{
+    display:inline-block;;
+    border:0;
+}
+.rate > label{
+    float: right;
+}
+
+/* Showing the starts */
+.rate > label:before{
+    display: inline-block;
+    font-size : 1.1rem;
+    font-family : FontAwesome;
+    content : "\f005";
+    margin : 0;
+    padding : 0.3rem .2rem;
+    cursor: pointer;
+}
+
+/* Half Star*/
+.rate .half:before{
+    content:"\f089";
+    position:absolute;
+    padding-right:0;
+}
+
+/* click and hover */
+input:checked ~ label, label:hover ~ label{
+    color: #ffb503;
+}
+
+/* hover highlight */
+input:checked + label:hover, input:checked ~ label:hover,input:checked ~ label:hover ~ label,
+label:hover ~ input:checked ~ label{
+    color:#cc9000;
+}
+>>>>>>> 7a59026 (Final Sprint)

@@ -2,24 +2,106 @@
 {% block title %}Dashboard{% endblock %}
 {% block content %}
   <h1>Dashboard</h1>
+<<<<<<< HEAD
+=======
+<p>Welcome to your dashboard. You can <a href='{% url "edit" %}'>edit your profile</a> or <a href='{% url "password_change" %}'>change your password</a>.</p>
+
+>>>>>>> 7a59026 (Final Sprint)
     <form method="GET">
         <input type="text" name="keyword">
         <input class="search-btn" type="submit" value="Search">
     </form>
+<<<<<<< HEAD
+=======
+    <form method="GET">
+        <select name="country">
+            <option selected="selected" disabled>Country:</option>
+            <option value="us">United States</option>
+            <option value="ae">United Arab Emirates</option>
+            <option value="ar">Argentina</option>
+            <option value="at">Austria</option>
+            <option value="au">Australia</option>
+            <option value="be">Belgium</option>
+            <option value="bg">Bulgaria</option>
+            <option value="br">Brazil</option>
+            <option value="ca">Canada</option>
+            <option value="ch">Switzerland</option>
+            <option value="cn">China</option>
+            <option value="co">Colombia</option>
+            <option value="cu">Cuba</option>
+            <option value="cz">Czechia</option>
+            <option value="de">Germany</option>
+            <option value="eg">Egypt</option>
+            <option value="fr">France</option>
+            <option value="gr">Greece</option>
+            <option value="hk">Honk Kong</option>
+            <option value="hu">Hungary</option>
+            <option value="id">Indonesia</option>
+            <option value="ie">Ireland</option>
+            <option value="in">India</option>
+            <option value="jp">Japan</option>
+        </select>
+        <input type="submit" value="Select">
+    </form>
+    <form method="GET">
+        <select name="category">
+            <option selected="selected" disabled>Category:</option>
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="general">General</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+        </select>
+        <input type="submit" value="Search">
+    </form>
+
+>>>>>>> 7a59026 (Final Sprint)
 <section class="home-section">
     <div class="grid-container">
     {% for i in articles %}
         <div class="card">
             <img class="news-img" src = "{{i.urlToImage}}" alt="">
           <div class="news-info">
+<<<<<<< HEAD
             <h2>{{i.title}}</h2>
+=======
+            <a href="{{ i.title }}"><h2>{{i.title}}</h2></a>
+>>>>>>> 7a59026 (Final Sprint)
             <h3>{{i.author}}</h3>
             <p>{{i.description}}</p>
             <a href="{{i.url}}" target="_blank">View Article</a>
             <small> published at:{{i.publishedAt}}</small>
+<<<<<<< HEAD
           </div>
         </div>
   {%endfor%}
+=======
+              <form action="{}" method="post">
+                  {% csrf_token %}
+                  <div>
+                      <!--Rating Star-->
+                      <label>Rate this News</label>
+                      <br>
+                      <div class="rate">
+                          <input type="radio" name="rating" id="rating10" value="5" required><label for="rating10" title="5"></label>
+                          <input type="radio" name="rating" id="rating9" value="4.5" required><label for="rating9" title="4.5" class="half"></label>
+                          <input type="radio" name="rating" id="rating8" value="4" required><label for="rating8" title="4"></label>
+                          <input type="radio" name="rating" id="rating7" value="3.5" required><label for="rating7" title="3.5" class="half"></label>
+                          <input type="radio" name="rating" id="rating6" value="3" required><label for="rating6" title="3"></label>
+                          <input type="radio" name="rating" id="rating5" value="2.5" required><label for="rating5" title="2.5" class="half"></label>
+                          <input type="radio" name="rating" id="rating4" value="2" required><label for="rating4" title="2"></label>
+                          <input type="radio" name="rating" id="rating3" value="1.5" required><label for="rating3" title="1.5" class="half"></label>
+                          <input type="radio" name="rating" id="rating2" value="1" required><label for="rating2" title="1"></label>
+                          <input type="radio" name="rating" id="rating1" value="0.5" required><label for="rating1" title="0.5" class="half"></label>
+                      </div>
+                  </div>
+              </form>
+          </div>
+        </div>
+    {%endfor%}
+>>>>>>> 7a59026 (Final Sprint)
     </div>
 </section>
 {% endblock %}

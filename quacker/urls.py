@@ -1,7 +1,11 @@
 """quacker URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
+<<<<<<< HEAD
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
+=======
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+>>>>>>> 7a59026 (Final Sprint)
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -17,11 +21,23 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7a59026 (Final Sprint)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('newsapp/',include('newsapp.urls')),
     path('social-auth/',include('social_django.urls',namespace='social')),
+<<<<<<< HEAD
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+=======
+    path('chat/',include('chat.urls',namespace='chat')),
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
+>>>>>>> 7a59026 (Final Sprint)

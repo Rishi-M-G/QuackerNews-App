@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 <!--Delete this later-->
+=======
+>>>>>>> 7a59026 (Final Sprint)
 {% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
   <title>Quacker</title>
   <link href='{% static "css/base.css" %}' rel="stylesheet">
   <!-- Google Fonts -->
@@ -34,6 +38,28 @@
       </li>
       <li {% if section == "invite friends" %}class="selected"{% endif %}>
         <a href="#">Invite Friends</a>
+=======
+  <title>{% block title %}{% endblock %}</title>
+  <link href='{% static "css/base.css" %}' rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="header">
+  <span class="logo">Bookmarks</span>
+  {% if request.user.is_authenticated %}
+    <ul class="menu">
+      <li {% if section == "dashboard" %}class="selected"{% endif %}>
+        <a href='{% url "dashboard" %}'>My dashboard</a>
+      </li>
+      <li {% if section == "invite_friends" %}class="selected"{% endif %}>
+        <a href='{% url "invite_friends" %}'>Invite Friends</a>
+      </li>
+      <li {% if section == "people" %}class="selected"{% endif %}>
+        <a href='{% url "user_list" %}'>People</a>
+      </li>
+      <li {% if section == "Chat" %}class="selected"{% endif %}>
+        <a href='{% url "chat:index" %}'>Chat</a>
+>>>>>>> 7a59026 (Final Sprint)
       </li>
 
     </ul>
@@ -46,8 +72,13 @@
       <a href='{% url "login" %}'>Log-in</a>
     {% endif %}
   </span>
+<<<<<<< HEAD
 </div>
 {% if messages %}
+=======
+  </div>
+  {% if messages %}
+>>>>>>> 7a59026 (Final Sprint)
   <ul class="messages">
     {% for message in messages %}
       <li class="{{ message.tags }}">
@@ -57,6 +88,7 @@
     {% endfor %}
   </ul>
 {% endif %}
+<<<<<<< HEAD
 <div id="content">
     {% block content %}
     {% endblock %}
@@ -64,3 +96,31 @@
 </body>
 </html>
 <!--*****************-->
+=======
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+<script>
+  var csrftoken = Cookies.get('csrftoken');
+    function csrfSafeMethod(method) {
+      // these HTTP methods do not require CSRF protection
+      return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+      beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+          xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+      }
+    });
+  $(document).ready(function(){
+    {% block domready %}
+    {% endblock %}
+  });
+</script>
+</body>
+</html>
+>>>>>>> 7a59026 (Final Sprint)
